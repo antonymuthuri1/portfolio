@@ -22,6 +22,7 @@ export default function Navbar() {
             <li><Link href='/contact'>
                 Contact
             </Link></li>
+            
 
             {/* <div className='ml-20 '>
                 {user && user.email === 'admin@example.com' && (

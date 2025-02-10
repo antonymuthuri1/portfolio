@@ -28,7 +28,7 @@ export default function Projects() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="max-w-5xl w-full"
       >
-        <h1 className="text-3xl font-bold mb-6 text-center">My Projects</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center">Solutions We’ve Built</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <motion.div
