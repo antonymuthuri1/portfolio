@@ -1,4 +1,0 @@
-hello
-// AI-generated suggestion for:
-hello
-console.log("Hello AI!");
