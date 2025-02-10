@@ -12,7 +12,7 @@ export default function Navbar() {
             </Link></li>
 
             <li><Link href='/projects'>
-                Solutions We’ve Built
+                Solutions We&apos;ve Built
             </Link></li>
             
             <li><Link href='/about'>
@@ -22,7 +22,7 @@ export default function Navbar() {
             <li><Link href='/contact'>
                 Contact
             </Link></li>
-            
+
 
             {/* <div className='ml-20 '>
                 {user && user.email === 'admin@example.com' && (
