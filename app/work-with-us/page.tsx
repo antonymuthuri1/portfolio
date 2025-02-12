@@ -48,7 +48,7 @@ export default function WorkWithUs() {
         <h1 className="text-3xl text-orange-400 font-bold mb-6 text-center">Work With Us</h1>
 
         <p className="text-gray-600 dark:text-gray-300 text-center mb-6">
-          At Swifniq Solutions, we specialize in building <strong>custom AI-driven</strong> and <strong>automation solutions</strong> to streamline your business operations allowing you and your team to focus on what truly matters: <strong className="text-orange-400">growing your business </strong>. Whether you're looking for <strong>AI-powered customer support</strong>, <strong>automated workflows</strong>, or <strong>smarter lead management</strong>, we’re here to help.
+          At Swifniq Solutions, we specialize in building <strong>custom AI-driven</strong> and <strong>automation solutions</strong> to streamline your business operations allowing you and your team to focus on what truly matters: <strong className="text-orange-400">growing your business </strong>. Whether you&apos;re looking for <strong>AI-powered customer support</strong>, <strong>automated workflows</strong>, or <strong>smarter lead management</strong>, we&apos;re here to help.
         </p>
 
         <motion.div
@@ -66,7 +66,7 @@ export default function WorkWithUs() {
           </ul>
         </motion.div>
 
-        <h2 className="text-2xl text-blue-6 font-semibold mt-8 text-center">Let's Discuss Your Project</h2>
+        <h2 className="text-2xl text-blue-6 font-semibold mt-8 text-center">Let&apos;s Discuss Your Project</h2>
 
         {submitted ? (
           <motion.div
