@@ -1,82 +1,104 @@
+"use client";
 
-export default function Home() {
+import { motion } from "framer-motion";
+import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    chatWidget?: {
+      init: (config: { verify: { userId: string; userSecret: string } }) => void;
+    };
+  }
+}
+
+export default function Solutions() {
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://swifniq-suite-ai-agent.web.app/embed.js";
+    script.async = true;
+
+    script.onload = () => {
+      if (window.chatWidget) {
+        window.chatWidget.init({
+          verify: {
+            userId: 'kMjiKQsyI4QUB7TX6Tz1POBRMVU2',
+            userSecret: "c509933b-5e15-4b4c-b90e-2c99fb612040",
+          },
+        });
+      }
+    };
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  const solutions = [
+    {
+      title: "AI-Powered Lead Nurturing System",
+      problem: "Businesses struggle to follow up with leads consistently, leading to lost conversions.",
+      solution: "An AI-driven system automates personalized follow-ups, ensuring no lead is forgotten.",
+      impact: "Increases conversion rates and saves time for sales teams.",
+    },
+    {
+      title: "Custom AI Chatbot for Customer Support",
+      problem: "Customer support teams are overwhelmed with repetitive inquiries, slowing response times.",
+      solution: "A chatbot that handles FAQs, bookings, and inquiries, reducing manual workload.",
+      impact: "Enhances customer satisfaction and allows support staff to focus on complex issues.",
+    },
+    {
+      title: "Automated Inventory Management System",
+      problem: "Manual inventory tracking is time-consuming and prone to errors.",
+      solution: "A smart system that monitors stock levels in real-time and automates reordering.",
+      impact: "Reduces stock shortages and excess inventory, optimizing costs.",
+    },
+    {
+      title: "Smart Appointment Booking System",
+      problem: "Businesses spend too much time coordinating appointments manually.",
+      solution: "An automated booking system that integrates with calendars and sends reminders.",
+      impact: "Minimizes scheduling conflicts and improves customer experience.",
+    },
+    {
+      title: "Automated Data Extraction & Reporting",
+      problem: "Employees waste hours collecting and analyzing data for reports.",
+      solution: "An automation tool that extracts, processes, and generates reports instantly.",
+      impact: "Saves time, reduces human errors, and enables data-driven decision-making.",
+    },
+  ];
+
   return (
-    <div className="flex flex-col w-full">
-      
-      <section className="text-center py-20 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
-        <h1 className="text-4xl md:text-6xl font-bold">Supercharge Your Business with AI & Automation</h1>
-        <p className="mt-4 text-lg md:text-xl">We help businesses optimize operations, automate processes, and drive revenue.</p>
-        <div className="mt-6 flex justify-center gap-4">
-          <a href="#contact" className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold">Get a Free Consultation</a>
-          <a href="#solutions" className="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold">See Our Solutions</a>
+    <div className="flex justify-center p-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-w-5xl bg-slate-100 dark:bg-gray-900 p-8 rounded-lg shadow-lg w-full"
+      >
+        <h1 className="text-3xl text-orange-400 font-bold mb-6 text-center">Solutions We&apos;ve Built</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {solutions.map((solution, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.2, duration: 0.4 }}
+              className="bg-white hover:outline hover:outline-1 hover:outline-orange-400 dark:bg-gray-900 p-6 rounded-lg shadow-lg"
+            >
+              <h2 className="text-2xl font-semibold">{solution.title}</h2>
+              <p className="text-red-500 font-medium mt-2">Problem:</p>
+              <p className="text-gray-600 dark:text-gray-300">{solution.problem}</p>
+              <p className="text-blue-500 font-medium mt-2">Solution:</p>
+              <p className="text-gray-600 dark:text-gray-300">{solution.solution}</p>
+              <p className="text-green-500 font-medium mt-2">Impact:</p>
+              <p className="text-gray-600 dark:text-gray-300">{solution.impact}</p>
+            </motion.div>
+          ))}
         </div>
-      </section>
-
-      <section className="py-16 bg-gray-100 text-center">
-        <h2 className="text-3xl font-bold mb-6">What We Do</h2>
-        <p className="text-gray-700 mb-8">We provide AI-driven solutions to enhance efficiency, automate workflows, and increase revenue.</p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">AI-Powered CRM</h3>
-            <p className="text-gray-600">Automate customer engagement, lead nurturing & sales tracking.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">Smart Inventory Management</h3>
-            <p className="text-gray-600">Use AI to prevent overstocking & optimize supply chain logistics.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">Financial Automation</h3>
-            <p className="text-gray-600">Automate invoicing, fraud detection & real-time financial tracking.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">AI-Powered Marketing</h3>
-            <p className="text-gray-600">Leverage AI for personalized marketing campaigns & customer insights.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="solutions" className="py-16">
-        <h2 className="text-3xl font-bold text-center mb-6">Solutions We’ve Built</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-6 bg-white rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold">AI-Powered Lead Management</h3>
-            <p className="text-gray-600 mt-2"><strong>Challenge:</strong> Sales teams struggled with lead follow-ups.</p>
-            <p className="text-gray-600 mt-1"><strong>Solution:</strong> Automated AI-driven lead tracking & email nurturing.</p>
-            <p className="text-gray-600 mt-1"><strong>Results:</strong> Increased lead conversion rate by 40%.</p>
-            <div className="mt-4">
-              <a href="/case-study-ai-crm" className="text-indigo-500">Read More →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-gray-200 text-center">
-        <h2 className="text-3xl font-bold mb-6">Why Choose Swifniq Solutions?</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">AI & Automation Experts</h3>
-            <p className="text-gray-600">We build cutting-edge AI solutions that drive efficiency.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">Customized for Your Business</h3>
-            <p className="text-gray-600">Our solutions are tailored to your unique challenges.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">Fast & Scalable</h3>
-            <p className="text-gray-600">We implement AI quickly, ensuring immediate impact.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="py-16 text-center bg-blue-600 text-white">
-        <h2 className="text-3xl font-bold mb-4">Let&apos;s Build Something Great</h2>
-        <p className="text-lg mb-6">Schedule a free consultation and see how AI can transform your business.</p>
-        <a href="/contact" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold">Get a Free Consultation</a>
-      </section>
-
-
-
-
+      </motion.div>
     </div>
   );
 }

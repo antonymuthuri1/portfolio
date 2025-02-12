@@ -1,40 +1,32 @@
-'use client'
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
 
-    return (
-    <nav className='flex justify-center fixed top-0 left-0 w-full bg-background shadow-md z-50 p-4'>
-        <ul className='flex flex-row items-center gap-6'>
-            <li><Link href='/'>
-                Home
-            </Link></li>
+  return (
+    <nav className="flex justify-center fixed top-0 left-0 w-full bg-slate-100 shadow-md z-50 p-4">
+      <div className="flex flex-row items-center gap-6">
+        <Link
+          href="/"
+          className={`${
+            pathname === "/" ? "text-orange-400 font-bold" : "text-blue-600 hover:text-orange-400"
+          }`}
+        >
+          Solutions We&apos;ve Built
+        </Link>
 
-            <li><Link href='/projects'>
-                Solutions We&apos;ve Built
-            </Link></li>
-            
-            <li><Link href='/about'>
-                About
-            </Link></li>
-            
-            <li><Link href='/contact'>
-                Contact
-            </Link></li>
-
-
-            {/* <div className='ml-20 '>
-                {user && user.email === 'admin@example.com' && (
-                    <Link href="/admin" className="text-white">Admin Panel</Link>
-                )}
-                {user ? (
-                    <button onClick={logout} className="text-white">Logout</button>
-                ) : (
-                    <Link href="/login_signup" className="text-orange-400 ">Login</Link>
-                )}
-            </div> */}
-        </ul>
+        <Link
+          href="/work-with-us"
+          className={`${
+            pathname === "/work-with-us" ? "text-orange-400 font-bold" : "text-blue-600 hover:text-orange-400"
+          }`}
+        >
+          Work With Us
+        </Link>
+      </div>
     </nav>
-    );
+  );
 }
