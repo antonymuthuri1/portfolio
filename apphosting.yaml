@@ -9,15 +9,72 @@ runConfig:
 
 # Environment variables and secrets.
 # env:
-  # Configure environment variables.
-  # See https://firebase.google.com/docs/app-hosting/configure#user-defined-environment
-  # - variable: MESSAGE
-  #   value: Hello world!
-  #   availability:
-  #     - BUILD
-  #     - RUNTIME
+#   - variable: NEXT_PUBLIC_FIREBASE_apiKey
+#     secret: AIzaSyBfVwdowFsK85JYw07_bTZHCg-Gz0t_WK4
+#   - variable: NEXT_PUBLIC_FIREBASE_authDomain
+#     value: portfolio-d78c0.firebaseapp.com
+#   - variable: NEXT_PUBLIC_FIREBASE_projectId
+#     value: portfolio-d78c0
+#   - variable: NEXT_PUBLIC_FIREBASE_storageBucket
+#     value: portfolio-d78c0.firebasestorage.app
+#   - variable: NEXT_PUBLIC_FIREBASE_messagingSenderId
+#     value: 829297745114
+#   - variable: NEXT_PUBLIC_FIREBASE_appId
+#     value: 1:829297745114:web:f02a13cada8b7f76fc59e3
+#   - variable: NEXT_PUBLIC_FIREBASE_measurementId
+#     value: G-7HR546C83L
+    
 
-  # Grant access to secrets in Cloud Secret Manager.
-  # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
-  # - variable: MY_SECRET
-  #   secret: mySecretRef
+# firebase env:set NEXT_PUBLIC_FIREBASE_apiKey="AIzaSyBfVwdowFsK85JYw07_bTZHCg-Gz0t_WK4" \
+#   NEXT_PUBLIC_FIREBASE_authDomain="portfolio-d78c0.firebaseapp.com" \
+#   NEXT_PUBLIC_FIREBASE_projectId="portfolio-d78c0" \
+#   NEXT_PUBLIC_FIREBASE_storageBucket="portfolio-d78c0.firebasestorage.app" \
+#   NEXT_PUBLIC_FIREBASE_messagingSenderId="829297745114" \
+#   NEXT_PUBLIC_FIREBASE_appId="1:829297745114:web:f02a13cada8b7f76fc59e3" \
+#   NEXT_PUBLIC_FIREBASE_measurementId="G-7HR546C83L"
+
+#   echo "AIzaSyBfVwdowFsK85JYw07_bTZHCg-Gz0t_WK4" | firebase functions:secrets:set MY_API_KEY
+#   echo "portfolio-d78c0.firebaseapp.com" | firebase functions:secrets:set MY_AUTH_DOMAIN
+#   echo "portfolio-d78c0" | firebase functions:secrets:set MY_PROJECT_ID
+#   echo "portfolio-d78c0.firebasestorage.app" | firebase functions:secrets:set MY_STORAGE_BUCKET
+#   echo "829297745114" | firebase functions:secrets:set MY_MESSAGING_SENDER_ID
+#   echo "1:829297745114:web:f02a13cada8b7f76fc59e3" | firebase functions:secrets:set MY_APP_ID
+#   echo "G-7HR546C83L" | firebase functions:secrets:set MY_MEASUREMENT_ID
+
+# firebase functions:secrets:set MY_API_KEY --value="AIzaSyBfVwdowFsK85JYw07_bTZHCg-Gz0t_WK4"
+# firebase functions:secrets:set MY_AUTH_DOMAIN --value="AIzaSyBfVwdowFsK85JYw07_bTZHCg-Gz0t_WK4"
+# firebase functions:secrets:set MY_PROJECT_ID --value="portfolio-d78c0"
+# firebase functions:secrets:set MY_STORAGE_BUCKET --value="portfolio-d78c0.firebasestorage.app"
+# firebase functions:secrets:set MY_MESSAGING_SENDER_ID --value="829297745114"
+# firebase functions:secrets:set MY_APP_ID --value="1:829297745114:web:f02a13cada8b7f76fc59e3"
+# firebase functions:secrets:set MY_MEASUREMENT_ID --value="G-7HR546C83L"
+
+
+# firebase functions:secrets:access MY_API_KEY
+# firebase functions:secrets:access MY_AUTH_DOMAIN
+# firebase functions:secrets:access MY_PROJECT_ID
+# firebase functions:secrets:access MY_STORAGE_BUCKET
+# firebase functions:secrets:access MY_MESSAGING_SENDER_ID
+# firebase functions:secrets:access MY_APP_ID
+# firebase functions:secrets:access MY_MEASUREMENT_ID
+            
+
+
+# firebase env:set NEXT_PUBLIC_FIREBASE_api_key="AIzaSyBfVwdowFsK85JYw07_bTZHCg-Gz0t_WK4"
+# firebase env:set NEXT_PUBLIC_FIREBASE_auth_domain="portfolio-d78c0.firebaseapp.com"
+# firebase env:set NEXT_PUBLIC_FIREBASE_project_id="portfolio-d78c0"
+# firebase env:set NEXT_PUBLIC_FIREBASE_storage_bucket="portfolio-d78c0.firebasestorage.app"
+# firebase env:set NEXT_PUBLIC_FIREBASE_messaging_sender_id="829297745114"
+# firebase env:set NEXT_PUBLIC_FIREBASE_app_id="1:829297745114:web:f02a13cada8b7f76fc59e3"
+# firebase env:set NEXT_PUBLIC_FIREBASE_measurement_id="G-7HR546C83L"
+
+
+# const firebaseConfig = {
+#   apiKey: "AIzaSyBfVwdowFsK85JYw07_bTZHCg-Gz0t_WK4",
+#   authDomain: "portfolio-d78c0.firebaseapp.com",
+#   projectId: "portfolio-d78c0",
+#   storageBucket: "portfolio-d78c0.firebasestorage.app",
+#   messagingSenderId: "829297745114",
+#   appId: "1:829297745114:web:f02a13cada8b7f76fc59e3",
+#   measurementId: "G-7HR546C83L"
+# };
